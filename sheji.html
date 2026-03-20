@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>志凌 | 视觉设计师</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .heading { font-family: 'Playfair Display', serif; }
+        .project-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .project-card:hover { transform: translateY(-12px) scale(1.03); box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4); }
+        .modal { animation: fadeInScale 0.3s ease forwards; }
+        @keyframes fadeInScale { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 transition-colors duration-300">
+
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 dark:bg-white/80 backdrop-blur-lg border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+        <div class="text-2xl font-bold heading tracking-tighter">志凌</div>
+        <div class="hidden md:flex gap-10 text-sm font-medium">
+            <a href="#works" class="hover:text-teal-400 transition">作品</a>
+            <a href="#about" class="hover:text-teal-400 transition">关于我</a>
+            <a href="#contact" class="hover:text-teal-400 transition">联系</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <button id="theme-toggle" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition">
+                <i class="fas fa-moon text-xl"></i>
+            </button>
+            <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden w-10 h-10 flex items-center justify-center">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="min-h-screen flex items-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(at_center,#4f46e510_0%,transparent_70%)]"></div>
+    <div class="max-w-7xl mx-auto px-6 pt-20 text-center relative z-10">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-7xl md:text-8xl heading font-bold tracking-tighter mb-6">志凌</h1>
+            <p class="text-3xl md:text-4xl text-teal-400 mb-8">视觉设计师 · 香港</p>
+            <p class="text-xl text-zinc-400 dark:text-zinc-600 max-w-md mx-auto">用设计讲故事，用视觉传递情感。专注品牌视觉、UI/UX 与数字体验。</p>
+            <div class="mt-12 flex justify-center gap-4">
+                <a href="#works" class="px-10 py-4 bg-white text-black dark:bg-zinc-900 dark:text-white rounded-2xl font-medium flex items-center gap-3 hover:scale-105 transition">
+                    查看作品 <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+        <i class="fas fa-chevron-down text-3xl opacity-30"></i>
+    </div>
+</section>
+
+<!-- Works -->
+<section id="works" class="max-w-7xl mx-auto px-6 py-24">
+    <div class="text-center mb-16">
+        <span class="text-teal-400 text-sm tracking-[4px]">SELECTED WORKS</span>
+        <h2 class="text-5xl heading font-bold mt-3">精选作品</h2>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 项目1 -->
+        <div onclick="showProject(1)" class="project-card bg-zinc-900 dark:bg-zinc-100 rounded-3xl overflow-hidden cursor-pointer group">
+            <div class="aspect-video bg-zinc-800 relative">
+                <img src="https://picsum.photos/id/1015/800/600" alt="项目1" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-6">
+                    <div>
+                        <div class="text-teal-400 text-xs">2025 · 品牌设计</div>
+                        <div class="text-2xl font-semibold">NAKULA 时尚品牌重塑</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 项目2 -->
+        <div onclick="showProject(2)" class="project-card bg-zinc-900 dark:bg-zinc-100 rounded-3xl overflow-hidden cursor-pointer group">
+            <div class="aspect-video bg-zinc-800 relative">
+                <img src="https://picsum.photos/id/201/800/600" alt="项目2" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-6">
+                    <div>
+                        <div class="text-teal-400 text-xs">2025 · UI/UX</div>
+                        <div class="text-2xl font-semibold">Peak 运动 App</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 项目3 -->
+        <div onclick="showProject(3)" class="project-card bg-zinc-900 dark:bg-zinc-100 rounded-3xl overflow-hidden cursor-pointer group">
+            <div class="aspect-video bg-zinc-800 relative">
+                <img src="https://picsum.photos/id/30/800/600" alt="项目3" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-6">
+                    <div>
+                        <div class="text-teal-400 text-xs">2024 · 包装设计</div>
+                        <div class="text-2xl font-semibold">Harrow 咖啡品牌</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About -->
+<section id="about" class="bg-zinc-900 dark:bg-zinc-100 py-24 text-zinc-100 dark:text-zinc-900">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+        <div>
+            <img src="https://picsum.photos/id/64/800/800" alt="志凌" class="rounded-3xl w-full shadow-2xl">
+        </div>
+        <div>
+            <h2 class="text-5xl heading font-bold mb-8">关于我</h2>
+            <p class="text-lg leading-relaxed mb-8">我是志凌，一位来自香港的视觉设计师。过去 6 年，我帮助 30+ 品牌从零构建视觉语言，包括时尚、咖啡、科技和运动领域。我相信设计不仅是美观，更是情感的桥梁。</p>
+            <div class="grid grid-cols-3 gap-6 text-center">
+                <div><div class="text-4xl font-bold text-teal-400">60+</div><div class="text-sm mt-1">项目</div></div>
+                <div><div class="text-4xl font-bold text-teal-400">18</div><div class="text-sm mt-1">品牌</div></div>
+                <div><div class="text-4xl font-bold text-teal-400">6</div><div class="text-sm mt-1">年经验</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="max-w-7xl mx-auto px-6 py-24">
+    <div class="max-w-xl mx-auto text-center">
+        <h2 class="text-5xl heading font-bold mb-6">一起创作吧</h2>
+        <p class="text-zinc-400 dark:text-zinc-600">有合作意向？随时联系我！</p>
+        
+        <form class="mt-12 space-y-6">
+            <input type="text" placeholder="您的名字" class="w-full bg-zinc-900 dark:bg-white border border-white/20 rounded-2xl px-8 py-6 focus:outline-none focus:border-teal-400 transition">
+            <input type="email" placeholder="邮箱 / 微信" class="w-full bg-zinc-900 dark:bg-white border border-white/20 rounded-2xl px-8 py-6 focus:outline-none focus:border-teal-400 transition">
+            <textarea placeholder="项目简述..." rows="5" class="w-full bg-zinc-900 dark:bg-white border border-white/20 rounded-2xl px-8 py-6 focus:outline-none focus:border-teal-400 transition"></textarea>
+            <button type="submit" class="w-full bg-teal-400 hover:bg-teal-500 text-black font-medium py-6 rounded-2xl transition">发送消息</button>
+        </form>
+        
+        <div class="flex justify-center gap-8 mt-12 text-3xl">
+            <a href="#" class="hover:text-teal-400 transition"><i class="fab fa-weixin"></i></a>
+            <a href="#" class="hover:text-teal-400 transition"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="hover:text-teal-400 transition"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-black py-8 text-center text-xs text-zinc-500 dark:bg-white dark:text-zinc-400">
+    © 2026 志凌 · 香港视觉设计师 · All Rights Reserved
+</footer>
+
+<!-- 项目弹窗 -->
+<div id="modal" class="hidden fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-6">
+    <div class="modal bg-zinc-900 dark:bg-white max-w-4xl w-full rounded-3xl overflow-hidden">
+        <div class="relative">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-3xl z-10">✕</button>
+            <div id="modal-content" class="p-10"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Tailwind 脚本
+    tailwind.config = { content: ["*"], theme: { extend: {} } }
+    
+    // 暗黑模式
+    const toggle = document.getElementById('theme-toggle')
+    const html = document.documentElement
+    if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+        html.classList.add('dark')
+        toggle.innerHTML = '<i class="fas fa-sun text-xl"></i>'
+    }
+    toggle.addEventListener('click', () => {
+        if (html.classList.contains('dark')) {
+            html.classList.remove('dark')
+            localStorage.theme = 'light'
+            toggle.innerHTML = '<i class="fas fa-moon text-xl"></i>'
+        } else {
+            html.classList.add('dark')
+            localStorage.theme = 'dark'
+            toggle.innerHTML = '<i class="fas fa-sun text-xl"></i>'
+        }
+    })
+    
+    // 项目弹窗
+    function showProject(id) {
+        const content = document.getElementById('modal-content')
+        const titles = {
+            1: `<img src="https://picsum.photos/id/1015/1200/800" class="rounded-3xl mb-8 w-full"><h3 class="text-4xl heading mb-4">NAKULA 时尚品牌重塑</h3><p class="text-lg text-zinc-400">2025 年为香港新兴时尚品牌打造的全新视觉系统，包括 Logo、包装、电商界面与社交媒体模板。</p>`,
+            2: `<img src="https://picsum.photos/id/201/1200/800" class="rounded-3xl mb-8 w-full"><h3 class="text-4xl heading mb-4">Peak 运动 App</h3><p class="text-lg text-zinc-400">UI/UX 设计 + 品牌视觉，助力用户记录每一次突破。</p>`,
+            3: `<img src="https://picsum.photos/id/30/1200/800" class="rounded-3xl mb-8 w-full"><h3 class="text-4xl heading mb-4">Harrow 咖啡品牌</h3><p class="text-lg text-zinc-400">包装设计与店铺视觉系统，让每一杯咖啡都充满故事。</p>`
+        }
+        content.innerHTML = titles[id]
+        document.getElementById('modal').classList.remove('hidden')
+        document.getElementById('modal').classList.add('flex')
+    }
+    
+    function closeModal() {
+        const modal = document.getElementById('modal')
+        modal.classList.add('hidden')
+        modal.classList.remove('flex')
+    }
+    
+    // 移动端菜单（可自行扩展）
+</script>
+</body>
+</html>
